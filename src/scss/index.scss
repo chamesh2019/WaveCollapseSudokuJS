@@ -1,0 +1,101 @@
+$bgcolor : rgb(24, 61, 61);
+$boxcolor : rgb(92, 131, 116);
+$border : rgb(147, 177, 166);
+
+$height: min(90vh, 90vw);
+$bheight : calc($height/9);
+$sheight : calc($bheight/3);
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bgcolor;
+}
+
+@mixin basicstyle {
+    background-color: $boxcolor;
+    border: .5px solid $border;
+    aspect-ratio: 1;
+}
+
+@mixin child($n) {
+    &:nth-child(#{$n}){
+        margin-bottom: .2em;
+    }
+}
+
+.container {
+    aspect-ratio: 1;
+    height: $height;
+    display: grid;
+    grid-template-columns: repeat(3, $bheight) calc(.2rem - 1px) repeat(3, $bheight) calc(.2rem - 1px) repeat(3, $bheight);
+    column-gap: 1px;
+    row-gap: 1px;
+
+}
+
+@mixin basicbox {
+    aspect-ratio: 1;
+    height: calc($height/9);
+    transition: .1s ease;
+    overflow: hidden;
+
+    @include basicstyle();
+    @include child(23);
+    @include child(56);
+
+    &:hover {
+        scale: 1.2;
+    }
+}
+
+.box {
+    @include basicbox();
+}
+
+.box-collapsed {
+    @include basicbox();
+
+    font-size: 3em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solution {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: white;
+    aspect-ratio: 1;
+    width: $sheight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+.inside {
+    opacity: 50%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, calc($sheight - 1px));
+
+
+    &:hover {
+        opacity: 100%;
+    }
+}
