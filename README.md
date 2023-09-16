@@ -1,7 +1,15 @@
-# RunCode
+# 🚀 Welcome to your new awesome project!
 
-This is base repository for RunCode workspace.
+This project has been created using **webpack-cli**, you can now run
 
-You can clone any git repositories or use your own by selecting one at the time of creating workspace.
+```
+npm run build
+```
 
-[![](https://runcode-app-public.s3.amazonaws.com/images/dark_btn.png)](https://runcode.io)
+or
+
+```
+yarn build
+```
+
+to bundle your application
